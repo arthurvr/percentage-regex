@@ -1,0 +1,33 @@
+{
+  "name": "percentage-regex",
+  "version": "0.0.0",
+  "description": "Regex to match a percentage value",
+  "license": "MIT",
+  "repository": "arthurvr/percentage-regex",
+  "author": {
+    "name": "Arthur Verschaeve",
+    "email": "contact@arthurverschaeve.be",
+    "url": "arthurverschaeve.be"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "%",
+    "percentage",
+    "percent",
+    "digit",
+    "number",
+    "regex",
+    "regexp"
+  ],
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
