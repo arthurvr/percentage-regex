@@ -1,2 +1,2 @@
 'use strict';
-module.exports = /^\d+\.?(\d+)? ?%$/;
+module.exports = /^(\d+(\.\d+)?|\.\d+) ?%$/;

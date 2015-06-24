@@ -11,7 +11,10 @@ var shouldPass = [
 	'1 %',
 	'39 %',
 	'1.00 %',
-	'0%'
+	'0%',
+	'.5%',
+	'.05%',
+	'.05 %'
 ];
 
 shouldPass.forEach(function (fixture) {
@@ -28,7 +31,13 @@ var shouldFail = [
 	'1..00%',
 	'%%',
 	'%',
-	''
+	' %',
+	'',
+	'. 5%',
+	'.%',
+	'..5%',
+	'.5.5%',
+	'12.%'
 ];
 
 shouldFail.forEach(function (fixture) {
