@@ -15,18 +15,28 @@ $ npm install --save percentage-regex
 ```js
 var percentageRegex = require('percentage-regex');
 
-percentageRegex().test('88%');
-//=> true
+'I am 99% sure that was a unicorn'.match(percentageRegex());
+//=> ['99%']
 
-percentageRegex().test('88.5%');
-//=> true
+'I had 83% for maths and 68% for French'.match(percentageRegex());
+//=> ['83%', '68%']
 
-percentageRegex().test('69 %');
+percentageRegex({exact: true}).test('88%');
 //=> true
-
-percentageRegex().test('69');
-//=> false
 ```
+
+## API
+
+### percentageRegex(options)
+
+Returns a regex for matching percentage values.
+
+#### options.exact
+
+Type: `boolean`  
+Default: `false` *(Matches any percentage in a string)*  
+
+Only match an exact string. Useful with `RegExp#test` to check if some string is a percentage.
 
 
 ## License
