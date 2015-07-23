@@ -15,16 +15,16 @@ $ npm install --save percentage-regex
 ```js
 var percentageRegex = require('percentage-regex');
 
-percentageRegex.test('88%');
+percentageRegex().test('88%');
 //=> true
 
-percentageRegex.test('88.5%');
+percentageRegex().test('88.5%');
 //=> true
 
-percentageRegex.test('69 %');
+percentageRegex().test('69 %');
 //=> true
 
-percentageRegex.test('69');
+percentageRegex().test('69');
 //=> false
 ```
 

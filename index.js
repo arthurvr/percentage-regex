@@ -1,2 +1,6 @@
 'use strict';
-module.exports = /^(\d+(\.\d+)?|\.\d+) ?%$/;
+module.exports = function (opts) {
+	opts = opts || {};
+
+	return /^(\d+(\.\d+)?|\.\d+) ?%$/;
+};

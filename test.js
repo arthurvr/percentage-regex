@@ -19,7 +19,7 @@ var shouldPass = [
 
 shouldPass.forEach(function (fixture) {
 	it('should match `' + fixture + '`', function () {
-		assert(percentageRegex.test(fixture));
+		assert(percentageRegex().test(fixture));
 	});
 });
 
@@ -49,6 +49,6 @@ var shouldFail = [
 
 shouldFail.forEach(function (fixture) {
 	it('should not match `' + fixture + '`', function () {
-		assert(!percentageRegex.test(fixture));
+		assert(!percentageRegex().test(fixture));
 	});
 });
