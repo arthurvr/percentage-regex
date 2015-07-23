@@ -1,6 +1,6 @@
 {
   "name": "percentage-regex",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Regex to match a percentage value",
   "license": "MIT",
   "repository": "arthurvr/percentage-regex",
