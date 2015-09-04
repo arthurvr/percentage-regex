@@ -35,7 +35,7 @@ Returns a regex for matching percentage values.
 #### options.exact
 
 Type: `boolean`  
-Default: `false` *(Matches any percentage in a string)*  
+Default: `false`
 
 Only match an exact string. Useful with `RegExp#test` to check if some string is a percentage.
 
