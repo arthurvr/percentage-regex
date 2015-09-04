@@ -25,6 +25,7 @@ percentageRegex({exact: true}).test('88%');
 //=> true
 ```
 
+
 ## API
 
 ### percentageRegex(options)
