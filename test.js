@@ -1,5 +1,5 @@
 'use strict';
-var assert = require('assert');
+var test = require('ava');
 var percentageRegex = require('./');
 
 var shouldPass = [
@@ -18,8 +18,9 @@ var shouldPass = [
 ];
 
 shouldPass.forEach(function (fixture) {
-	it('exact regex should match `' + fixture + '`', function () {
-		assert(percentageRegex({exact: true}).test(fixture));
+	test('exact regex should match `' + fixture + '`', function (t) {
+		t.true(percentageRegex({exact: true}).test(fixture));
+		t.end();
 	});
 });
 
@@ -48,22 +49,26 @@ var shouldFail = [
 ];
 
 shouldFail.forEach(function (fixture) {
-	it('exact regex should not match `' + fixture + '`', function () {
-		assert(!percentageRegex({exact: true}).test(fixture));
+	test('exact regex should not match `' + fixture + '`', function (t) {
+		t.false(percentageRegex({exact: true}).test(fixture));
+		t.end();
 	});
 });
 
-it('non-exact regex should match all percentages in a string', function () {
-	assert.deepEqual('10%'.match(percentageRegex({exact: false})), ['10%']);
-	assert.deepEqual('foo 10% bar'.match(percentageRegex({exact: false})), ['10%']);
-	assert.deepEqual('foo 10%'.match(percentageRegex({exact: false})), ['10%']);
-	assert.deepEqual('.5% 10%'.match(percentageRegex({exact: false})), ['.5%', '10%']);
-	assert.deepEqual('foo .5% 10%'.match(percentageRegex({exact: false})), ['.5%', '10%']);
-	assert.deepEqual('foo .5% 10% bar'.match(percentageRegex({exact: false})), ['.5%', '10%']);
-	assert.deepEqual('.5% 10% bar'.match(percentageRegex({exact: false})), ['.5%', '10%']);
-	assert.deepEqual('0% 10% bar'.match(percentageRegex({exact: false})), ['0%', '10%']);
+test('non-exact regex should match all percentages in a string', function (t) {
+	t.same('10%'.match(percentageRegex({exact: false})), ['10%']);
+	t.same('foo 10% bar'.match(percentageRegex({exact: false})), ['10%']);
+	t.same('foo 10%'.match(percentageRegex({exact: false})), ['10%']);
+	t.same('.5% 10%'.match(percentageRegex({exact: false})), ['.5%', '10%']);
+	t.same('foo .5% 10%'.match(percentageRegex({exact: false})), ['.5%', '10%']);
+	t.same('foo .5% 10% bar'.match(percentageRegex({exact: false})), ['.5%', '10%']);
+	t.same('.5% 10% bar'.match(percentageRegex({exact: false})), ['.5%', '10%']);
+	t.same('0% 10% bar'.match(percentageRegex({exact: false})), ['0%', '10%']);
+
+	t.end();
 });
 
-it('exact should default to false', function () {
-	assert.deepEqual('foo 10% bar'.match(percentageRegex()), ['10%']);
+test('exact should default to false', function (t) {
+	t.same('foo 10% bar'.match(percentageRegex()), ['10%']);
+	t.end();
 });
