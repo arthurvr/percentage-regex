@@ -1,8 +1,7 @@
-'use strict';
-var test = require('ava');
-var percentageRegex = require('./');
+import test from 'ava';
+import percentageRegex from './';
 
-var shouldPass = [
+const shouldPass = [
 	'19%',
 	'10.0%',
 	'1%',
@@ -17,14 +16,14 @@ var shouldPass = [
 	'.05 %'
 ];
 
-shouldPass.forEach(function (fixture) {
-	test('exact regex should match `' + fixture + '`', function (t) {
+shouldPass.forEach(fixture => {
+	test('exact regex should match `' + fixture + '`', t => {
 		t.true(percentageRegex({exact: true}).test(fixture));
 		t.end();
 	});
 });
 
-var shouldFail = [
+const shouldFail = [
 	'',
 	'   ',
 	'foobar',
@@ -48,14 +47,14 @@ var shouldFail = [
 	'12.%'
 ];
 
-shouldFail.forEach(function (fixture) {
-	test('exact regex should not match `' + fixture + '`', function (t) {
+shouldFail.forEach(fixture => {
+	test('exact regex should not match `' + fixture + '`', t => {
 		t.false(percentageRegex({exact: true}).test(fixture));
 		t.end();
 	});
 });
 
-test('non-exact regex should match all percentages in a string', function (t) {
+test('non-exact regex should match all percentages in a string', t => {
 	t.same('10%'.match(percentageRegex({exact: false})), ['10%']);
 	t.same('foo 10% bar'.match(percentageRegex({exact: false})), ['10%']);
 	t.same('foo 10%'.match(percentageRegex({exact: false})), ['10%']);
@@ -68,7 +67,7 @@ test('non-exact regex should match all percentages in a string', function (t) {
 	t.end();
 });
 
-test('exact should default to false', function (t) {
+test('exact should default to false', t => {
 	t.same('foo 10% bar'.match(percentageRegex()), ['10%']);
 	t.end();
 });
