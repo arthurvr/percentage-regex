@@ -13,7 +13,7 @@ $ npm install --save percentage-regex
 ## Usage
 
 ```js
-var percentageRegex = require('percentage-regex');
+const percentageRegex = require('percentage-regex');
 
 'I am 99% sure that was a unicorn'.match(percentageRegex());
 //=> ['99%']
